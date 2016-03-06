@@ -77,7 +77,7 @@ namespace RPGSystem.ItemSystem
 
 		public void DisplayIcon()
 		{
-			GUILayout.Label ("Icon");
+			_icon = EditorGUILayout.ObjectField("Prefab", _icon, typeof (Sprite), false) as Sprite;
 		}
 
 

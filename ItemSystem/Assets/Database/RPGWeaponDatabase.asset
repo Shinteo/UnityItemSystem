@@ -11,4 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12d079addb384312b13f7d9fdd7610a, type: 3}
   m_Name: RPGWeaponDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Super Sword
+    _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    _value: 100
+    _weight: 20
+    _quality:
+      _name: Rare
+      _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    _minDamage: 999
+    _durability: 999
+    _maxDurability: 999
+    _prefab: {fileID: 170450, guid: 379fe05f25b814205bc296d770e249b3, type: 2}
+    equipmentSlot: 3
+  - _name: Duper Sword
+    _icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    _value: 99
+    _weight: 99
+    _quality:
+      _name: Rare
+      _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    _minDamage: 99
+    _durability: 99
+    _maxDurability: 99
+    _prefab: {fileID: 170450, guid: 379fe05f25b814205bc296d770e249b3, type: 2}
+    equipmentSlot: 3
