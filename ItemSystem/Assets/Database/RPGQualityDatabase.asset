@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed86bcf5d15546a0a744a29f44913fd, type: 3}
+  m_Name: RPGQualityDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - _name: Common
+    _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: Uncommon
+    _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - _name: Rare
+    _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
