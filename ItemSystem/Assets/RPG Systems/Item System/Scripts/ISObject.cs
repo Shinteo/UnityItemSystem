@@ -15,6 +15,26 @@ namespace RPGSystem.ItemSystem
 		[SerializeField] int 		_weight;
 		[SerializeField] ISQuality 	_quality;
 
+
+
+		public ISObject (ISObject item)
+		{
+			Clone (item);
+		}
+
+
+
+		public void Clone (ISObject item)
+		{
+			_name		= item.ItemName;
+			_icon		= item.ItemIcon;
+			_value		= item.ItemValue;
+			_weight		= item.ItemWeight;
+			_quality	= item.ItemQuality;
+		}
+
+
+
 		public string ItemName 
 		{
 			get { return _name;}

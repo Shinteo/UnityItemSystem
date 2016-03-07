@@ -9,17 +9,16 @@ namespace RPGSystem.ItemSystem.Editor
 	public partial class ISObjectEditor : EditorWindow 
 	{		
 		ISWeaponDatabase weaponDatabase;
-		//Vector2 _scrollPos; 				//scroll posistion for list view 
 
 
-
+		//This defines the location of the database to save to
 		const string DATABASE_NAME 			= @"RPGWeaponDatabase.asset";
 		const string DATABASE_PATH 			= @"Database";
 		const string DATABASE_FULL_PATH 	= @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
 
 
-		//Use this to set the editor window
+		//Use this to set the main editor window
 		[MenuItem("RPG/Database/Item Database Editor %#i")]
 		public static void Init()
 		{
@@ -32,6 +31,7 @@ namespace RPGSystem.ItemSystem.Editor
 
 
 
+		//Creates the database if there isn't one
 		void OnEnable()
 		{
 			if (weaponDatabase == null)
@@ -40,6 +40,7 @@ namespace RPGSystem.ItemSystem.Editor
 
 
 
+		//The actual editor view box in Unity
 		void OnGUI()
 		{
 			TopTabBar();

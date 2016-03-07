@@ -12,25 +12,32 @@ namespace RPGSystem.ItemSystem
 		[SerializeField] int 				_minDamage;
 		[SerializeField] int 				_durability;
 		[SerializeField] int				_maxDurability;
-		[SerializeField] ISEquipmentSlot 	_eqipmentSlot;
 		[SerializeField] GameObject 		_prefab;
 
 		public EquipmentSlot equipmentSlot;
 
 		public ISWeapon()
 		{
-			_eqipmentSlot = new ISEquipmentSlot();
-			//_prefab = new GameObject();
+		
 		}
 
 
 
-		public ISWeapon(int durability, int maxDurability, ISEquipmentSlot equipmentSlot, GameObject prefab)
+		public ISWeapon(ISWeapon weapon)
 		{
-			_durability 	= durability;
-			_maxDurability 	= maxDurability;
-			_eqipmentSlot	= equipmentSlot;
-			_prefab			= prefab;
+			Clone(weapon);
+		}
+
+
+
+		public void Clone(ISWeapon weapon)
+		{
+			base.Clone(weapon);
+
+			_durability 	= weapon.Durability;
+			_maxDurability 	= weapon.MaxDurability;
+			equipmentSlot 	= weapon.equipmentSlot;
+			_prefab			= weapon.Prefab;
 		}
 
 
@@ -94,16 +101,6 @@ namespace RPGSystem.ItemSystem
 		public void Break ()
 		{
 			_durability = 0;
-		}
-		#endregion
-
-
-
-		#region IISEquipable implementation
-
-		public ISEquipmentSlot EquipmentSlot 
-		{
-			get { return _eqipmentSlot; }
 		}
 		#endregion
 
