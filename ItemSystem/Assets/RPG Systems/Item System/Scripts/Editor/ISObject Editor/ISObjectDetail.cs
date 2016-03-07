@@ -1,12 +1,25 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace RPGSystem.ItemSystem.Editor
 {
 	public partial class ISObjectEditor
 	{
+		enum DisplayState
+		{
+			NONE,
+			DETAILS
+		}
+
+
+
 		ISWeapon tempWeapon = new ISWeapon();
 		bool showNewWeaponDetails = false;
+
+
+
+		DisplayState state = DisplayState.NONE;
 
 
 
@@ -15,9 +28,19 @@ namespace RPGSystem.ItemSystem.Editor
 			GUILayout.BeginVertical("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
 			GUILayout.BeginVertical(GUILayout.ExpandWidth(true),GUILayout.ExpandHeight(true));
 
-			if (showNewWeaponDetails)
-				DisplayNewWeapon();
-					
+			EditorGUILayout.LabelField ("State: " +state);
+			switch (state)
+			{
+			case DisplayState.DETAILS:
+				if (showNewWeaponDetails)
+					DisplayNewWeapon();
+				break;
+			default:
+				break;
+			}
+
+
+
 			GUILayout.EndVertical();
 
 			GUILayout.Space(50);
@@ -47,29 +70,30 @@ namespace RPGSystem.ItemSystem.Editor
 				{
 					tempWeapon = new ISWeapon();
 					showNewWeaponDetails = true;
+					state = DisplayState.DETAILS;
 				}
 			}
 			else
 			{
 				if (GUILayout.Button("Save"))
 				{
+					if(_selectedIndex == -1)
+						weaponDatabase.Add (tempWeapon);
+					else
+						weaponDatabase.Replace(_selectedIndex, tempWeapon);
+					
 					showNewWeaponDetails = false;
-
-//					string DATABASE_NAME 	= @"RPGQualityDatabase.asset";
-//					string DATABASE_PATH 	= @"Database";
-//					ISQualityDatabase qdb;
-//					qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
-//
-//					tempWeapon.ItemQuality = qdb.Get(tempWeapon.SelectedQualityID);
-
-					weaponDatabase.Add (tempWeapon);
 					tempWeapon = null;
+					_selectedIndex = -1;
+					state = DisplayState.NONE;
 				}
 				
 				if (GUILayout.Button("Cancel"))
 				{
 					showNewWeaponDetails = false;
 					tempWeapon = null;
+					_selectedIndex = -1;
+					state = DisplayState.NONE;
 				}
 			}
 		}
