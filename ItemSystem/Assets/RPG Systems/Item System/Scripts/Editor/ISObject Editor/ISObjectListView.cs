@@ -23,6 +23,8 @@ namespace RPGSystem.ItemSystem.Editor
 			//If something is selected, hide the list panel
 			if (state != DisplayState.NONE)
 				return;
+				//If you'd rather just grey out the panel, then uncomment the below two GUI.enable control, and comment out the above return
+				//GUI.enabled = false;
 
 			//If nothing is selected, show the list panel
 
@@ -40,6 +42,8 @@ namespace RPGSystem.ItemSystem.Editor
 					state = DisplayState.DETAILS;
 				}
 			}
+
+			//GUI.enabled = true;
 
 			GUILayout.EndScrollView();
 		}

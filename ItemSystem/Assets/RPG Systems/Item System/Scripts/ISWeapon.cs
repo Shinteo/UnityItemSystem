@@ -14,6 +14,8 @@ namespace RPGSystem.ItemSystem
 		[SerializeField] int				_maxDurability;
 		[SerializeField] GameObject 		_prefab;
 
+		public WeaponMatList weaponMatList;
+
 		public EquipmentSlot equipmentSlot;
 
 		public ISWeapon()
@@ -34,9 +36,11 @@ namespace RPGSystem.ItemSystem
 		{
 			base.Clone(weapon);
 
+			_minDamage		= weapon.MinDamage;
 			_durability 	= weapon.Durability;
 			_maxDurability 	= weapon.MaxDurability;
 			equipmentSlot 	= weapon.equipmentSlot;
+			weaponMatList	= weapon.weaponMatList;
 			_prefab			= weapon.Prefab;
 		}
 
@@ -126,6 +130,7 @@ namespace RPGSystem.ItemSystem
 			_durability = System.Convert.ToInt32 (EditorGUILayout.TextField("Durability", _durability.ToString()));
 			_maxDurability = System.Convert.ToInt32 (EditorGUILayout.TextField("Max Durability", _maxDurability.ToString()));
 			DisplayEquipmentSlot();
+			DisplayWeaponMatList();
 			DisplayPrefab();
 		}
 
@@ -136,6 +141,12 @@ namespace RPGSystem.ItemSystem
 			equipmentSlot = (EquipmentSlot) EditorGUILayout.EnumPopup("Equipment Slot", equipmentSlot);
 		}
 
+
+
+		public void DisplayWeaponMatList()
+		{
+			weaponMatList = (WeaponMatList) EditorGUILayout.EnumPopup("Weapon Material", weaponMatList);
+		}
 
 
 

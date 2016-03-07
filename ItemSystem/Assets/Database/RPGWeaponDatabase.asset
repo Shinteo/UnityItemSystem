@@ -23,6 +23,7 @@ MonoBehaviour:
     _durability: 999
     _maxDurability: 999
     _prefab: {fileID: 170450, guid: 379fe05f25b814205bc296d770e249b3, type: 2}
+    weaponMatList: 0
     equipmentSlot: 3
   - _name: Duper Sword of Awesomeness
     _icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
@@ -30,11 +31,12 @@ MonoBehaviour:
     _weight: 99
     _quality:
       _name: Common
-      _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      _icon: {fileID: 0}
     _minDamage: 99
     _durability: 99
     _maxDurability: 99
     _prefab: {fileID: 170450, guid: 379fe05f25b814205bc296d770e249b3, type: 2}
+    weaponMatList: 2
     equipmentSlot: 3
   - _name: New Sword of Darkness
     _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -42,11 +44,12 @@ MonoBehaviour:
     _weight: 19
     _quality:
       _name: Common
-      _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      _icon: {fileID: 0}
     _minDamage: 0
     _durability: 999
     _maxDurability: 99
     _prefab: {fileID: 170450, guid: 379fe05f25b814205bc296d770e249b3, type: 2}
+    weaponMatList: 3
     equipmentSlot: 3
   - _name: Club
     _icon: {fileID: 0}
@@ -59,4 +62,5 @@ MonoBehaviour:
     _durability: 0
     _maxDurability: 0
     _prefab: {fileID: 0}
+    weaponMatList: 1
     equipmentSlot: 0

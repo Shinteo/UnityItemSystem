@@ -91,7 +91,9 @@ namespace RPGSystem.ItemSystem.Editor
 					tempWeapon = null;
 					_selectedIndex = -1;
 					state = DisplayState.NONE;
-					GUI.FocusControl ("Cancel");
+
+					//This sets the focus control to nothing, to prevent editor from keeping item in focus when you select something else
+					GUI.FocusControl (null);
 				}
 
 
@@ -113,15 +115,14 @@ namespace RPGSystem.ItemSystem.Editor
 							tempWeapon = null;
 							_selectedIndex = -1;
 							state = DisplayState.NONE;
-							GUI.FocusControl ("Cancel");
+
+							//This sets the focus control to nothing, to prevent editor from keeping item in focus when you select something else
+							GUI.FocusControl (null);
 						}
 					}
 				}
 
 
-
-				//Set the next button to be the focus button
-				GUI.SetNextControlName ("Cancel");
 
 				if (GUILayout.Button("Cancel"))
 				{
@@ -129,7 +130,9 @@ namespace RPGSystem.ItemSystem.Editor
 					tempWeapon = null;
 					_selectedIndex = -1;
 					state = DisplayState.NONE;
-					GUI.FocusControl ("Cancel");
+
+					//This sets the focus control to nothing, to prevent editor from keeping item in focus when you select something else
+					GUI.FocusControl (null);
 				}
 			}
 		}
