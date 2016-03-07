@@ -20,6 +20,12 @@ namespace RPGSystem.ItemSystem.Editor
 		//Main code to display the list of items we have inside the database in the list view
 		void ListView()
 		{
+			//If something is selected, hide the list panel
+			if (state != DisplayState.NONE)
+				return;
+
+			//If nothing is selected, show the list panel
+
 			//To create a scroll bar
 			_scrollPos = GUILayout.BeginScrollView (_scrollPos, "Box", GUILayout.ExpandHeight (true), GUILayout.Width(_listViewWidth));
 
