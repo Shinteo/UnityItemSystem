@@ -91,6 +91,7 @@ namespace RPGSystem.ItemSystem.Editor
 					tempWeapon = null;
 					_selectedIndex = -1;
 					state = DisplayState.NONE;
+					GUI.FocusControl ("Cancel");
 				}
 
 
@@ -99,18 +100,28 @@ namespace RPGSystem.ItemSystem.Editor
 				{
 					if (GUILayout.Button("Delete"))
 					{
-					//This will remove the selected item by the index number
-					weaponDatabase.Remove(_selectedIndex);
+						if(EditorUtility.DisplayDialog(	"Delete Weapon", 
+														"Are you sure that you want to delete " + weaponDatabase.Get(_selectedIndex).ItemName + " from the database?",
+														"Delete",
+														"Cancel"))
+						{
+							//This will remove the selected item by the index number
+							weaponDatabase.Remove(_selectedIndex);
 
-					//This is to reset everything to default
-					showNewWeaponDetails = false;
-					tempWeapon = null;
-					_selectedIndex = -1;
-					state = DisplayState.NONE;
+							//This is to reset everything to default
+							showNewWeaponDetails = false;
+							tempWeapon = null;
+							_selectedIndex = -1;
+							state = DisplayState.NONE;
+							GUI.FocusControl ("Cancel");
+						}
 					}
 				}
 
 
+
+				//Set the next button to be the focus button
+				GUI.SetNextControlName ("Cancel");
 
 				if (GUILayout.Button("Cancel"))
 				{
@@ -118,6 +129,7 @@ namespace RPGSystem.ItemSystem.Editor
 					tempWeapon = null;
 					_selectedIndex = -1;
 					state = DisplayState.NONE;
+					GUI.FocusControl ("Cancel");
 				}
 			}
 		}

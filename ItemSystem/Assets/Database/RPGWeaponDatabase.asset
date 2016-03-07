@@ -50,11 +50,11 @@ MonoBehaviour:
     equipmentSlot: 3
   - _name: Club
     _icon: {fileID: 0}
-    _value: 100
-    _weight: 100
+    _value: 10
+    _weight: 10
     _quality:
       _name: Common
-      _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      _icon: {fileID: 0}
     _minDamage: 0
     _durability: 0
     _maxDurability: 0
