@@ -64,3 +64,16 @@ MonoBehaviour:
     _prefab: {fileID: 0}
     weaponMatList: 1
     equipmentSlot: 0
+  - _name: Saber
+    _icon: {fileID: 0}
+    _value: 10
+    _weight: 10
+    _quality:
+      _name: Uncommon
+      _icon: {fileID: 0}
+    _minDamage: 12
+    _durability: 20
+    _maxDurability: 20
+    _prefab: {fileID: 0}
+    weaponMatList: 1
+    equipmentSlot: 3

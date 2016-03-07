@@ -124,7 +124,12 @@ namespace RPGSystem.ItemSystem
 
 		public void DisplayQuality()
 		{
-			qualitySelectedIndex = EditorGUILayout.Popup("Quality", qualitySelectedIndex, option);
+			int itemIndex = 0;
+
+			if (_quality != null)
+				itemIndex = qdb.GetIndex (_quality.Name);
+			
+			qualitySelectedIndex = EditorGUILayout.Popup("Quality", itemIndex , option);
 			_quality = qdb.Get(SelectedQualityID);
 		}
 		#endregion

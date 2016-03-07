@@ -10,7 +10,7 @@ namespace RPGSystem
 {
 	public class ScriptableObjectDatabase<T> : ScriptableObject where T: class
 	{
-		[SerializeField] List<T> database = new List<T>();
+		[SerializeField] protected List<T> database = new List<T>();
 
 		//Use this to add item to the Quality Database
 		public void Add( T item)
