@@ -126,9 +126,18 @@ namespace RPGSystem.ItemSystem
 		{
 			base.OnGUI();
 
-			_minDamage = System.Convert.ToInt32 (EditorGUILayout.TextField("Damage", _minDamage.ToString()));
-			_durability = System.Convert.ToInt32 (EditorGUILayout.TextField("Durability", _durability.ToString()));
-			_maxDurability = System.Convert.ToInt32 (EditorGUILayout.TextField("Max Durability", _maxDurability.ToString()));
+			_minDamage 		= EditorGUILayout.IntField("Damage", _minDamage);
+			_durability 	= EditorGUILayout.IntField("Damage", _durability);
+			_maxDurability 	= EditorGUILayout.IntField("Damage", _maxDurability);
+
+			//If the Durability is more then Max Durability, spawn a error message, and then set the Durability to be same as Max Durability
+			if (_durability > _maxDurability)
+			{
+				EditorUtility.DisplayDialog ("Error", "Durability cannot be more then Max Durability", "OK");
+				_durability = _maxDurability;
+				GUI.FocusControl (null);
+			}
+
 			DisplayEquipmentSlot();
 			DisplayWeaponMatList();
 			DisplayPrefab();

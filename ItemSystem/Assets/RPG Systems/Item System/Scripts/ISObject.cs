@@ -84,9 +84,10 @@ namespace RPGSystem.ItemSystem
 		public virtual void OnGUI()
 		{
 			//GUILayout.BeginVertical();
-			_name = EditorGUILayout.TextField("Name", _name);
-			_value = System.Convert.ToInt32 (EditorGUILayout.TextField("Value", _value.ToString()));
-			_weight = System.Convert.ToInt32 (EditorGUILayout.TextField("Weight", _weight.ToString()));
+			_name 		= EditorGUILayout.TextField("Name", _name);
+			_value 		= EditorGUILayout.IntField("Value", _value);
+			_weight 	= EditorGUILayout.IntField("Weight", _weight);
+
 			DisplayIcon();
 			DisplayQuality();
 			//GUILayout.EndVertical();

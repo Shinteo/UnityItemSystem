@@ -58,9 +58,9 @@ MonoBehaviour:
     _quality:
       _name: Common
       _icon: {fileID: 0}
-    _minDamage: 0
-    _durability: 0
-    _maxDurability: 0
+    _minDamage: 122
+    _durability: 121
+    _maxDurability: 200
     _prefab: {fileID: 0}
     weaponMatList: 1
     equipmentSlot: 0
