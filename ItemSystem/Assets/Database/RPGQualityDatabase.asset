@@ -11,10 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed86bcf5d15546a0a744a29f44913fd, type: 3}
   m_Name: RPGQualityDatabase
   m_EditorClassIdentifier: 
-  database:
-  - _name: Common
-    _icon: {fileID: 0}
-  - _name: Uncommon
-    _icon: {fileID: 0}
-  - _name: Rare
-    _icon: {fileID: 0}
+  database: []
