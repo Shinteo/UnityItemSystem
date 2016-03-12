@@ -1,4 +1,7 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 using System.Collections;
 
@@ -20,7 +23,11 @@ namespace RPGSystem.ItemSystem
 
 		public ISWeapon()
 		{
-		
+			_minDamage = 0;
+			_durability = 1;
+			_maxDurability = 1;
+			_prefab = new GameObject();
+			equipmentSlot = EquipmentSlot.Feet;
 		}
 
 
@@ -122,6 +129,7 @@ namespace RPGSystem.ItemSystem
 
 
 		// This part will go to a new script later
+#if UNITY_EDITOR
 		public override void OnGUI()
 		{
 			base.OnGUI();
@@ -163,6 +171,8 @@ namespace RPGSystem.ItemSystem
 		{
 			_prefab = EditorGUILayout.ObjectField("Prefab", _prefab, typeof (GameObject), false) as GameObject;
 		}
+
+#endif
 
 		#endregion
 	}

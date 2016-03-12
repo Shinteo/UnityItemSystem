@@ -15,6 +15,6 @@ namespace RPGSystem.ItemSystem
 		Torso,
 		Legs,
 		Hands,
-		Feets
+		Feet
 	}
 }

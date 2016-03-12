@@ -1,4 +1,7 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 using System.Collections;
 
@@ -14,6 +17,13 @@ namespace RPGSystem.ItemSystem
 		[SerializeField] int 		_value;
 		[SerializeField] int 		_weight;
 		[SerializeField] ISQuality 	_quality;
+
+
+
+		public ISObject ()
+		{
+			
+		}
 
 
 
@@ -76,9 +86,11 @@ namespace RPGSystem.ItemSystem
 
 
 		//This code is going to be place in a new class later on
+#if UNITY_EDITOR
 		ISQualityDatabase qdb;
 		int qualitySelectedIndex = 0;
 		string[] option;
+		bool qualityDatabaseLoad = false;
 
 
 		public virtual void OnGUI()
@@ -110,7 +122,7 @@ namespace RPGSystem.ItemSystem
 
 
 
-		public ISObject()
+		public void LoadQualityDatabase()
 		{
 			string DATABASE_NAME 	= @"RPGQualityDatabase.asset";
 			string DATABASE_PATH 	= @"Database";
@@ -119,12 +131,20 @@ namespace RPGSystem.ItemSystem
 			option = new string[qdb.Count] ;
 			for (int cnt = 0; cnt < qdb.Count; cnt ++)
 				option[cnt] = qdb.Get (cnt).Name;
+
+			qualityDatabaseLoad = true;
 		}
 
 
 
 		public void DisplayQuality()
 		{
+			if (!qualityDatabaseLoad)
+			{
+				LoadQualityDatabase();
+				return;
+			}
+
 			int itemIndex = 0;
 
 			if (_quality != null)
@@ -133,6 +153,9 @@ namespace RPGSystem.ItemSystem
 			qualitySelectedIndex = EditorGUILayout.Popup("Quality", itemIndex , option);
 			_quality = qdb.Get(SelectedQualityID);
 		}
+
+#endif
+
 		#endregion
 	}
 }

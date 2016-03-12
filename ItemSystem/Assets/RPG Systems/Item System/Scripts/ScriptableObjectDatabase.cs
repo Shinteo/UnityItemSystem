@@ -1,4 +1,7 @@
-﻿using UnityEditor;					//Needed for EditorUtility
+﻿#if UNITY_EDITOR
+using UnityEditor;					//Needed for EditorUtility
+#endif
+
 using UnityEngine;
 using System.Linq; 					//Needed for ElementAt
 using System.Collections;
@@ -11,6 +14,10 @@ namespace RPGSystem
 	public class ScriptableObjectDatabase<T> : ScriptableObject where T: class
 	{
 		[SerializeField] protected List<T> database = new List<T>();
+
+
+
+#if UNITY_EDITOR
 
 		//Use this to add item to the Quality Database
 		public void Add( T item)
@@ -46,8 +53,9 @@ namespace RPGSystem
 			EditorUtility.SetDirty (this);
 		}
 		
-		
-		
+#endif
+
+
 		//Use this to get the number of items in the database
 		public int Count
 		{
@@ -63,7 +71,8 @@ namespace RPGSystem
 		}
 		
 
-		
+#if UNITY_EDITOR
+
 		//Use this to replace an item in the database with another
 		public void Replace (int Index, T item)
 		{
@@ -71,9 +80,9 @@ namespace RPGSystem
 			EditorUtility.SetDirty (this);
 		}
 
-		
 
-		//
+
+
 		public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
 		{
 			string dbFullPath = @"Assets/" +dbPath + "/" + dbName;
@@ -105,5 +114,8 @@ namespace RPGSystem
 			database.TrimExcess ();
 			EditorUtility.SetDirty (this);
 		}
+
+#endif
+
 	}
 }
