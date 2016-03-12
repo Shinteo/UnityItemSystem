@@ -26,7 +26,7 @@ namespace RPGSystem.ItemSystem
 			_minDamage = 0;
 			_durability = 1;
 			_maxDurability = 1;
-			_prefab = new GameObject();
+				
 			equipmentSlot = EquipmentSlot.Feet;
 		}
 
@@ -53,7 +53,8 @@ namespace RPGSystem.ItemSystem
 
 
 
-		public int MinDamage {
+		public int MinDamage 
+		{
 			get { return _minDamage; }
 			set { _minDamage = value; }
 		}
@@ -119,10 +120,11 @@ namespace RPGSystem.ItemSystem
 
 		#region IISGameObject implementation
 
-		public GameObject Prefab {
+		public GameObject Prefab 
+		{
 			get 
-			{
-				return _prefab;
+			{ 
+				return _prefab; 
 			}
 		}
 
@@ -135,8 +137,8 @@ namespace RPGSystem.ItemSystem
 			base.OnGUI();
 
 			_minDamage 		= EditorGUILayout.IntField("Damage", _minDamage);
-			_durability 	= EditorGUILayout.IntField("Damage", _durability);
-			_maxDurability 	= EditorGUILayout.IntField("Damage", _maxDurability);
+			_durability 	= EditorGUILayout.IntField("Durability", _durability);
+			_maxDurability 	= EditorGUILayout.IntField("Max Durability", _maxDurability);
 
 			//If the Durability is more then Max Durability, spawn a error message, and then set the Durability to be same as Max Durability
 			if (_durability > _maxDurability)

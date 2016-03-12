@@ -13,6 +13,9 @@ namespace RPGSystem.ItemSystem.Editor
 			_listViewButtonHeight	= 25,
 
 			_selectedIndex			= -1;
+
+
+		Vector2 buttonSize = new Vector2 (180, 25);
 			
 
 
@@ -22,9 +25,9 @@ namespace RPGSystem.ItemSystem.Editor
 		{
 			//If something is selected, hide the list panel
 			if (state != DisplayState.NONE)
-				return;
+				//return;
 				//If you'd rather just grey out the panel, then uncomment the below two GUI.enable control, and comment out the above return
-				//GUI.enabled = false;
+				GUI.enabled = false;
 
 			//If nothing is selected, show the list panel
 
@@ -43,7 +46,7 @@ namespace RPGSystem.ItemSystem.Editor
 				}
 			}
 
-			//GUI.enabled = true;
+			GUI.enabled = true;
 
 			GUILayout.EndScrollView();
 		}

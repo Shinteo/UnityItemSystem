@@ -9,6 +9,7 @@ namespace RPGSystem.ItemSystem.Editor
 	public partial class ISObjectEditor : EditorWindow 
 	{		
 		ISWeaponDatabase weaponDatabase;
+		ISObjectCategory armorDatabase = new ISObjectCategory();
 		ISMaterialDatabase materialDatabase;
 
 
@@ -43,6 +44,8 @@ namespace RPGSystem.ItemSystem.Editor
 			if (materialDatabase == null)
 				materialDatabase = ISMaterialDatabase.GetDatabase<ISMaterialDatabase>(DATABASE_PATH, MATERIAL_DATABASE_NAME);
 
+			armorDatabase.OnEnable();
+
 			tabState = TabState.WEAPON;
 		}
 
@@ -62,7 +65,8 @@ namespace RPGSystem.ItemSystem.Editor
 				ItemDetails();
 				break;
 			case TabState.ARMOR:
-				GUILayout.Label("Armor");
+				armorDatabase.Listview(buttonSize);
+				armorDatabase.ItemDetail();
 				break;
 			case TabState.CONSUMABLE:
 				GUILayout.Label("Consumable");
