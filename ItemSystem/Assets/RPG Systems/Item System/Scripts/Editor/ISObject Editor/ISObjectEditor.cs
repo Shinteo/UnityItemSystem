@@ -42,6 +42,8 @@ namespace RPGSystem.ItemSystem.Editor
 
 			if (materialDatabase == null)
 				materialDatabase = ISMaterialDatabase.GetDatabase<ISMaterialDatabase>(DATABASE_PATH, MATERIAL_DATABASE_NAME);
+
+			tabState = TabState.WEAPON;
 		}
 
 
@@ -53,9 +55,26 @@ namespace RPGSystem.ItemSystem.Editor
 
 			GUILayout.BeginHorizontal();
 
-			ListView();
-			ItemDetails();
-
+			switch (tabState)
+			{
+			case TabState.WEAPON:
+				ListView();
+				ItemDetails();
+				break;
+			case TabState.ARMOR:
+				GUILayout.Label("Armor");
+				break;
+			case TabState.CONSUMABLE:
+				GUILayout.Label("Consumable");
+				break;
+			case TabState.MATERIAL:
+				GUILayout.Label("Material");
+				break;
+			default:
+				GUILayout.Label("Default -> About");
+				break;
+			}
+				
 			GUILayout.EndHorizontal();
 
 			BottomBar();

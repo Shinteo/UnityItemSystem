@@ -7,6 +7,21 @@ namespace RPGSystem.ItemSystem.Editor
 {
 	public partial class ISObjectEditor
 	{
+		enum TabState
+		{
+			WEAPON,
+			ARMOR,
+			CONSUMABLE,
+			MATERIAL,
+			ABOUT
+		}
+
+
+
+		TabState tabState;
+
+
+
 		void TopTabBar()
 		{
 			//The tabs that are at the top of the editor
@@ -25,35 +40,40 @@ namespace RPGSystem.ItemSystem.Editor
 
 		void WeaponTab()
 		{
-			GUILayout.Button ("Weapon");
+			if (GUILayout.Button ("Weapon"))
+				tabState = TabState.WEAPON;
 		}
 
 
 
 		void ArmorTab()
 		{
-			GUILayout.Button("Armors");
+			if (GUILayout.Button("Armor"))
+				tabState = TabState.ARMOR;
 		}
 
 
 
 		void ConsumableTab()
 		{
-			GUILayout.Button("Consumable");
+			if (GUILayout.Button("Consumable"))
+				tabState = TabState.CONSUMABLE;
 		}
 
 
 
 		void MaterialTab()
 		{
-			GUILayout.Button("Material");
+			if (GUILayout.Button("Material"))
+				tabState = TabState.MATERIAL;
 		}
 
 
 
 		void AboutTab()
 		{
-			GUILayout.Button("About");
+			if (GUILayout.Button("About"))
+				tabState = TabState.ABOUT;
 		}
 	}
 }
