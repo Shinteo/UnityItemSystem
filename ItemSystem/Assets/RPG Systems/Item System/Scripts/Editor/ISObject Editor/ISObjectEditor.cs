@@ -9,12 +9,15 @@ namespace RPGSystem.ItemSystem.Editor
 	public partial class ISObjectEditor : EditorWindow 
 	{		
 		ISWeaponDatabase weaponDatabase;
+		ISMaterialDatabase materialDatabase;
 
 
 		//This defines the location of the database to save to
-		const string DATABASE_NAME 			= @"RPGWeaponDatabase.asset";
-		const string DATABASE_PATH 			= @"Database";
-		const string DATABASE_FULL_PATH 	= @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+		const string WEAPON_DATABASE_NAME 		= @"RPGWeaponDatabase.asset";
+		const string MATERIAL_DATABASE_NAME		= @"RPGMaterialDatabase.asset";
+
+		const string DATABASE_PATH 				= @"Database";
+		const string DATABASE_FULL_PATH 		= @"Assets/" + DATABASE_PATH + "/" + WEAPON_DATABASE_NAME;
 
 
 
@@ -35,7 +38,10 @@ namespace RPGSystem.ItemSystem.Editor
 		void OnEnable()
 		{
 			if (weaponDatabase == null)
-				weaponDatabase = ISWeaponDatabase.GetDatabase<ISWeaponDatabase>(DATABASE_PATH, DATABASE_NAME);
+				weaponDatabase = ISWeaponDatabase.GetDatabase<ISWeaponDatabase>(DATABASE_PATH, WEAPON_DATABASE_NAME);
+
+			if (materialDatabase == null)
+				materialDatabase = ISMaterialDatabase.GetDatabase<ISMaterialDatabase>(DATABASE_PATH, MATERIAL_DATABASE_NAME);
 		}
 
 

@@ -15,6 +15,7 @@ namespace RPGSystem.ItemSystem.Editor
 			WeaponTab();
 			ArmorTab();
 			ConsumableTab();
+			MaterialTab();
 			AboutTab();
 
 			GUILayout.EndHorizontal();
@@ -39,6 +40,13 @@ namespace RPGSystem.ItemSystem.Editor
 		void ConsumableTab()
 		{
 			GUILayout.Button("Consumable");
+		}
+
+
+
+		void MaterialTab()
+		{
+			GUILayout.Button("Material");
 		}
 
 

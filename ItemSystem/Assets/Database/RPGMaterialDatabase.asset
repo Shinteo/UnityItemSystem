@@ -8,13 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed86bcf5d15546a0a744a29f44913fd, type: 3}
-  m_Name: RPGQualityDatabase
+  m_Script: {fileID: 11500000, guid: 7a7600fe65de64f83be698f27edbe0c3, type: 3}
+  m_Name: RPGMaterialDatabase
   m_EditorClassIdentifier: 
   database:
-  - _name: Common
-    _icon: {fileID: 0}
-  - _name: Uncommon
-    _icon: {fileID: 0}
-  - _name: Rare
-    _icon: {fileID: 0}
+  - _MatName: 
+    _MatIcon: {fileID: 0}
+    _MatValue: 0
+    _MatWeight: 0
